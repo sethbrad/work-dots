@@ -11,8 +11,6 @@ Plug 'alvarosevilla95/luatab.nvim'
 
 Plug 'glepnir/dashboard-nvim'
 Plug 'ahmedkhalf/project.nvim'
-Plug 'rmagatti/auto-session'
-Plug 'rmagatti/session-lens'
 
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-commentary'
@@ -47,7 +45,6 @@ require('telescope').setup{
     }
 }
 require('telescope').load_extension('projects')
-require('telescope').load_extension('session-lens')
 
 require('gitsigns').setup{}
 require('project_nvim').setup {}
@@ -57,16 +54,11 @@ require('luatab').setup{}
 -- treesitter
 require('nvim-treesitter.configs').setup{
     -- these have to be explicitly enabled
-    ensure_installed = { "c", "javascript", "typescript", "rust", "lua", "java" },
+    ensure_installed = { "go", "c", "javascript", "typescript", "rust", "lua", "java" },
 
     highlight = {
         enable = true
     }
-}
-
--- sessions
-require('session-lens').setup {
-    path_display={'shorten'},
 }
 
 -- dashboard

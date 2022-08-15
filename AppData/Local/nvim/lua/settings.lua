@@ -27,8 +27,6 @@ opt.scrolloff = 10
 opt.number = true
 opt.guifont = 'FiraCode NF:h10.5'
 
-opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
-
 -- NETRW SETTINGS FOR WITHOUT VINEGAR
 cmd([[
     let g:netrw_liststyle = 3

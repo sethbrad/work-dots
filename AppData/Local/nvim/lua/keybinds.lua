@@ -32,7 +32,6 @@ map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', options)
 map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', options)
 map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', options)
 map('n', '<leader>fp', '<cmd>Telescope projects<cr>', options)
-map('n', '<leader>fs', '<cmd>Telescope session-lens search_session<cr>', options)
 
 -- cheatsheet
 map('n', '<leader>cs', '<cmd>Cheat<cr>', options)

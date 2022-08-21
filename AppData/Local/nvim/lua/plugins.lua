@@ -6,8 +6,8 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/AppData/Local/nvim-data/plugged')
 
 Plug 'RRethy/nvim-base16'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'alvarosevilla95/luatab.nvim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'glepnir/dashboard-nvim'
 Plug 'ahmedkhalf/project.nvim'
@@ -20,6 +20,7 @@ Plug('neoclide/coc.nvim', { branch = 'release' })
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
@@ -32,7 +33,10 @@ Plug 'ThePrimeagen/vim-be-good'
 
 Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-cheat.sh'
+
 Plug 'vimwiki/vimwiki'
+Plug 'nvim-neorg/neorg'
+Plug 'hrsh7th/nvim-cmp'
 
 vim.call('plug#end')
 
@@ -42,22 +46,57 @@ vim.call('plug#end')
 require('telescope').setup{
     defaults = {
         file_ignore_patterns = {'node_modules', '.git', '.idea', 'dist'}
+    },
+    extensions = {
+        file_browser = {
+            hijack_netrw = true
+        }
     }
 }
 require('telescope').load_extension('projects')
+require('telescope').load_extension('file_browser')
 
 require('gitsigns').setup{}
 require('project_nvim').setup {}
 require('nvim-web-devicons').setup{}
-require('luatab').setup{}
 
 -- treesitter
 require('nvim-treesitter.configs').setup{
     -- these have to be explicitly enabled
-    ensure_installed = { "go", "c", "javascript", "typescript", "rust", "lua", "java" },
+    ensure_installed = { "go", "c", "javascript", "typescript", "rust", "lua", "java", "norg" },
 
     highlight = {
         enable = true
+    }
+}
+
+-- neorg
+require('neorg').setup {
+    load = {
+        ["core.defaults"] = {},
+        ["core.norg.dirman"] = {
+            config = {
+                workspaces = {
+                    work = "~/notes/work",
+                }
+            }
+        },
+        -- ["core.norg.concealer"] = {},
+        ["core.norg.completion"] = {
+            config = {
+                engine = "nvim-cmp"
+            }
+        },
+        ["core.export"] = {}
+    }
+}
+
+-- nvim-cmp
+local cmp = require('cmp')
+
+cmp.setup {
+    sources = cmp.config.sources{
+        sources = 'neorg'
     }
 }
 

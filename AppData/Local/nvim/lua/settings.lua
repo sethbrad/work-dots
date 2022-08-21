@@ -25,7 +25,7 @@ opt.wrap = false
 opt.scrolloff = 10
 
 opt.number = true
-opt.guifont = 'FiraCode NF:h10.5'
+opt.guifont = 'FiraCode NF:h11'
 
 -- NETRW SETTINGS FOR WITHOUT VINEGAR
 cmd([[

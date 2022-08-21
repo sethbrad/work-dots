@@ -22,6 +22,7 @@ map('n', '<M-w>', '<cmd>q<cr>', options)
 map('n', '<leader>ca', '<cmd>qa<cr>', options)
 
 map('n', '<leader>ee', '<cmd>enew<cr>', options)
+map('n', '<leader>ea', '<cmd>e #<cr>', options)
 
 -- terminal
 map('t', '<Esc>', "<C-\\><C-n>", options)
@@ -32,6 +33,7 @@ map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', options)
 map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', options)
 map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', options)
 map('n', '<leader>fp', '<cmd>Telescope projects<cr>', options)
+map('n', '<leader>ft', '<cmd>Telescope file_browser<cr>', options)
 
 -- cheatsheet
 map('n', '<leader>cs', '<cmd>Cheat<cr>', options)
@@ -42,3 +44,6 @@ map('n', '<C-j>', '<C-w>j', options)
 map('n', '<C-k>', '<C-w>k', options)
 map('n', '<C-l>', '<C-w>l', options)
 
+
+-- neorg
+map('n', '<leader>nw', '<cmd>NeorgStart<cr>', options)

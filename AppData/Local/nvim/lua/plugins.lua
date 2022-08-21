@@ -8,6 +8,7 @@ vim.call('plug#begin', '~/AppData/Local/nvim-data/plugged')
 Plug 'RRethy/nvim-base16'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+-- bufferline?
 
 Plug 'glepnir/dashboard-nvim'
 Plug 'ahmedkhalf/project.nvim'
@@ -24,6 +25,7 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
+Plug 'alvan/vim-closetag'
 
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'kyazdani42/nvim-web-devicons'

@@ -7,12 +7,27 @@ require('settings')
 
 local cmd = vim.cmd
 
+-- check if packages installed for portability/stability
+
 cmd('colorscheme base16-monokai')
 
--- theme airline as well?
--- cmd('AirlineTheme base16')
-
 cmd('autocmd TermOpen * startinsert')
+
+-- transparency :3
+cmd([[
+if exists("g:neovide")
+    let g:neovide_transparency=0.9
+    let g:neovide_cursor_vfx_mode = "sonicboom"
+endif
+]])
+
+-- local Plug = vim.fn['plug#']
+-- 
+-- vim.call('plug#begin', '~/AppData/Local/nvim-data/plugged')
+-- 
+-- Plug 'echasnovski/mini.nvim'
+-- 
+-- vim.call('plug#end')
 
 -- NOTE
 -- Telescope is currently hijacking the default filebrowser

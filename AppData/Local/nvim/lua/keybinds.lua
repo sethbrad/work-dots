@@ -1,4 +1,4 @@
--- 
+--
 -- KEYBINDS
 --
 local map = vim.api.nvim_set_keymap
@@ -15,14 +15,20 @@ map('n', '<leader>sc', '<cmd>luafile %<cr>', options)
 map('n', '<leader>t', '<cmd>Vex<cr>', options)
 map('n', '<leader>cd', '<cmd>cd %/..<cr>', options)
 
--- saving/exit
+-- saving/exit/general
 map('n', '<C-s>', '<cmd>w<cr>', options)
 map('i', '<C-s>', '<Esc><cmd>w<cr>', options)
+
 map('n', '<M-w>', '<cmd>q<cr>', options)
-map('n', '<leader>ca', '<cmd>qa<cr>', options)
+map('n', '<leader>qa', '<cmd>qa<cr>', options)
+
+map('n', '<M-t>', '<cmd>tabnew<cr>', options)
 
 map('n', '<leader>ee', '<cmd>enew<cr>', options)
 map('n', '<leader>ea', '<cmd>e #<cr>', options)
+
+map('n', '<leader>vs', '<cmd>vsp<cr>', options)
+map('n', '<leader>hs', '<cmd>sp<cr>', options)
 
 -- terminal
 map('t', '<Esc>', "<C-\\><C-n>", options)
@@ -36,7 +42,7 @@ map('n', '<leader>fp', '<cmd>Telescope projects<cr>', options)
 map('n', '<leader>ft', '<cmd>Telescope file_browser<cr>', options)
 
 -- cheatsheet
-map('n', '<leader>cs', '<cmd>Cheat<cr>', options)
+-- map('n', '<leader>cs', '<cmd>Cheat<cr>', options)
 
 -- split navigation
 map('n', '<C-h>', '<C-w>h', options)

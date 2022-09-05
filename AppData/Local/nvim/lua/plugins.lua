@@ -3,11 +3,12 @@
 --
 local Plug = vim.fn['plug#']
 
-vim.call('plug#begin', '~/AppData/Local/nvim-data/plugged')
+vim.call('plug#begin')
 
 Plug 'RRethy/nvim-base16'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+
+Plug 'akinsho/bufferline.nvim'
+Plug 'nvim-lualine/lualine.nvim'
 
 Plug 'glepnir/dashboard-nvim'
 Plug 'ahmedkhalf/project.nvim'
@@ -16,11 +17,12 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
-Plug('neoclide/coc.nvim', { branch = 'release' })
+Plug ('neoclide/coc.nvim', { branch = 'release' })
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-telescope/telescope-ui-select.nvim'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
@@ -31,12 +33,16 @@ Plug 'nvim-treesitter/nvim-treesitter'
 
 Plug 'ThePrimeagen/vim-be-good'
 
-Plug 'RishabhRD/popfix'
-Plug 'RishabhRD/nvim-cheat.sh'
+-- Plug 'RishabhRD/popfix'
+-- Plug 'RishabhRD/nvim-cheat.sh'
+Plug 'folke/which-key.nvim'
 
 Plug 'vimwiki/vimwiki'
 Plug 'nvim-neorg/neorg'
 Plug 'hrsh7th/nvim-cmp'
+
+-- diy plugin playground
+-- Plug 'C:/Users/zvm5w1b/repos/MakeCharBlob'
 
 vim.call('plug#end')
 
@@ -50,23 +56,51 @@ require('telescope').setup{
     extensions = {
         file_browser = {
             hijack_netrw = true
+        },
+        ['ui-select'] = {
+            require('telescope.themes').get_dropdown{}
         }
     }
 }
 require('telescope').load_extension('projects')
 require('telescope').load_extension('file_browser')
+require('telescope').load_extension('ui-select')
 
 require('gitsigns').setup{}
-require('project_nvim').setup {}
+require('project_nvim').setup{}
 require('nvim-web-devicons').setup{}
+require('which-key').setup{}
+
+-- lualine
+require('lualine').setup{
+    sections = {
+        lualine_c = {},
+        lualine_x = {'filetype'}
+    }
+}
 
 -- treesitter
-require('nvim-treesitter.configs').setup{
+require('nvim-treesitter.configs').setup {
     -- these have to be explicitly enabled
-    ensure_installed = { "go", "c", "javascript", "typescript", "rust", "lua", "java", "norg" },
-
+    ensure_installed = {
+        "go",
+        "c",
+        "javascript",
+        "typescript",
+        "rust",
+        "lua",
+        "java",
+        "norg"
+    },
     highlight = {
         enable = true
+    }
+}
+
+-- bufferline
+require('bufferline').setup {
+    options = {
+        mode = 'tabs'
     }
 }
 
@@ -95,25 +129,13 @@ require('neorg').setup {
 local cmp = require('cmp')
 
 cmp.setup {
-    sources = cmp.config.sources{
+    sources = cmp.config.sources {
         sources = 'neorg'
     }
 }
 
 -- dashboard
 local db = require('dashboard')
-
--- db.custom_header = {
---  '                                                       ',
---  ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
---  ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
---  ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
---  ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
---  ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
---  ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
---  '                                                       ',
---  '                                                       '
--- }
 
 db.custom_header = {
     '⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣴⣤⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀',

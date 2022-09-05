@@ -4,6 +4,9 @@
 local opt = vim.opt
 local cmd = vim.cmd
 
+-- NOTE
+-- need to port some basic settings to IntelliJ/VsCode rc's
+
 -- opt.autochdir = true
 opt.mouse = 'a'
 opt.termguicolors = true

@@ -6,7 +6,6 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin')
 
 Plug 'RRethy/nvim-base16'
-
 Plug 'akinsho/bufferline.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 
@@ -26,6 +25,7 @@ Plug 'nvim-telescope/telescope-ui-select.nvim'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
+Plug 'alvan/vim-closetag'
 
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'kyazdani42/nvim-web-devicons'

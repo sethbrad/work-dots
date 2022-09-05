@@ -11,6 +11,13 @@ local cmd = vim.cmd
 
 cmd('colorscheme base16-monokai')
 
+-- lualine follows theme
+require('lualine').setup{
+    options = {
+        theme = 'base16'
+    }
+}
+
 cmd('autocmd TermOpen * startinsert')
 
 -- transparency :3
@@ -18,6 +25,13 @@ cmd([[
 if exists("g:neovide")
     let g:neovide_transparency=0.9
     let g:neovide_cursor_vfx_mode = "sonicboom"
+endif
+]])
+
+-- fish
+cmd([[
+if &shell =~# 'fish$'
+    set shell=bash
 endif
 ]])
 

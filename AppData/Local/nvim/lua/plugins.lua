@@ -41,6 +41,10 @@ Plug 'vimwiki/vimwiki'
 Plug 'nvim-neorg/neorg'
 Plug 'hrsh7th/nvim-cmp'
 
+Plug 'dag/vim-fish'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'mboughaba/i3config.vim'
+
 -- diy plugin playground
 -- Plug 'C:/Users/zvm5w1b/repos/MakeCharBlob'
 

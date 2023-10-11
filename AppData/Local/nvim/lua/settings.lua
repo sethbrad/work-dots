@@ -7,7 +7,7 @@ local cmd = vim.cmd
 -- NOTE
 -- need to port some basic settings to IntelliJ/VsCode rc's
 
--- opt.autochdir = true
+opt.autochdir = true
 opt.mouse = 'a'
 opt.termguicolors = true
 
@@ -25,9 +25,10 @@ opt.hlsearch = false
 
 opt.colorcolumn = '81'
 opt.wrap = false
-opt.scrolloff = 10
+opt.scrolloff = 999
 
 opt.number = true
+opt.relativenumber = true
 opt.guifont = 'FiraCode NF:h11'
 
 -- NETRW SETTINGS FOR WITHOUT VINEGAR

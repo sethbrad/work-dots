@@ -38,8 +38,10 @@ Plug 'ThePrimeagen/vim-be-good'
 Plug 'folke/which-key.nvim'
 
 Plug 'vimwiki/vimwiki'
-Plug 'nvim-neorg/neorg'
+-- Plug 'nvim-neorg/neorg'
 Plug 'hrsh7th/nvim-cmp'
+
+Plug 'hkupty/iron.nvim'
 
 Plug 'dag/vim-fish'
 Plug 'christoomey/vim-tmux-navigator'
@@ -94,7 +96,8 @@ require('nvim-treesitter.configs').setup {
         "rust",
         "lua",
         "java",
-        "norg"
+        "norg",
+        "zig"
     },
     highlight = {
         enable = true
@@ -109,25 +112,25 @@ require('bufferline').setup {
 }
 
 -- neorg
-require('neorg').setup {
-    load = {
-        ["core.defaults"] = {},
-        ["core.norg.dirman"] = {
-            config = {
-                workspaces = {
-                    work = "~/notes/work",
-                }
-            }
-        },
-        -- ["core.norg.concealer"] = {},
-        ["core.norg.completion"] = {
-            config = {
-                engine = "nvim-cmp"
-            }
-        },
-        ["core.export"] = {}
-    }
-}
+-- require('neorg').setup {
+--     load = {
+--         ["core.defaults"] = {},
+--         ["core.norg.dirman"] = {
+--             config = {
+--                 workspaces = {
+--                     work = "~/notes/work",
+--                 }
+--             }
+--         },
+--         -- ["core.norg.concealer"] = {},
+--         ["core.norg.completion"] = {
+--             config = {
+--                 engine = "nvim-cmp"
+--             }
+--         },
+--         ["core.export"] = {}
+--     }
+-- }
 
 -- nvim-cmp
 local cmp = require('cmp')
@@ -177,5 +180,45 @@ db.custom_center = {
 db.custom_footer = {
     '                               ',
     "<== Seth's custom config :3 ==>"
+}
+
+-- iron
+local iron = require("iron.core")
+
+iron.setup {
+    config = {
+        -- Whether a repl should be discarded or not
+        scratch_repl = true,
+        -- Your repl definitions come here
+        repl_definition = {
+            sh = {
+                command = {"zsh"}
+            }
+        },
+        -- How the repl window will be displayed
+        -- See below for more information
+        repl_open_cmd = require('iron.view').bottom(40),
+    },
+    -- Iron doesn't set keymaps by default anymore.
+    -- You can set them here or manually add keymaps to the functions in iron.core
+    keymaps = {
+        send_motion = "<space>sc",
+        visual_send = "<space>sc",
+        send_file = "<space>sf",
+        send_line = "<space>sl",
+        send_mark = "<space>sm",
+        mark_motion = "<space>mc",
+        mark_visual = "<space>mc",
+        remove_mark = "<space>md",
+        cr = "<space>s<cr>",
+        interrupt = "<space>s<space>",
+        exit = "<space>sq",
+        clear = "<space>cl",
+    },
+    -- If the highlight is on, you can change how it looks
+    -- For the available options, check nvim_set_hl
+    highlight = {
+        italic = true
+    }
 }
 

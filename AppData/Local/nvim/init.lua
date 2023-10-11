@@ -5,11 +5,13 @@ require('plugins')
 require('keybinds')
 require('settings')
 
+-- pull in from home laptop!!!
+
 local cmd = vim.cmd
 
 -- check if packages installed for portability/stability
 
-cmd('colorscheme base16-monokai')
+cmd('colorscheme base16-gruvbox-dark-medium')
 
 -- lualine follows theme
 require('lualine').setup{
@@ -23,7 +25,7 @@ cmd('autocmd TermOpen * startinsert')
 -- transparency :3
 cmd([[
 if exists("g:neovide")
-    let g:neovide_transparency=0.9
+    let g:neovide_transparency=0.95
     let g:neovide_cursor_vfx_mode = "sonicboom"
 endif
 ]])
@@ -36,11 +38,11 @@ endif
 ]])
 
 -- local Plug = vim.fn['plug#']
--- 
+--
 -- vim.call('plug#begin', '~/AppData/Local/nvim-data/plugged')
--- 
+--
 -- Plug 'echasnovski/mini.nvim'
--- 
+--
 -- vim.call('plug#end')
 
 -- NOTE

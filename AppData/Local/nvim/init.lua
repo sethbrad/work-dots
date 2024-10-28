@@ -1,6 +1,15 @@
 --
 -- BEHOLD.. THE LUA CONFIG
 --
+
+local Plug = vim.fn['plug#']
+
+vim.call('plug#begin', '~/AppData/Local/nvim-data/plugged')
+
+Plug 'echasnovski/mini.nvim'
+
+vim.call('plug#end')
+
 require('plugins')
 require('keybinds')
 require('settings')
@@ -36,14 +45,6 @@ if &shell =~# 'fish$'
     set shell=bash
 endif
 ]])
-
--- local Plug = vim.fn['plug#']
---
--- vim.call('plug#begin', '~/AppData/Local/nvim-data/plugged')
---
--- Plug 'echasnovski/mini.nvim'
---
--- vim.call('plug#end')
 
 -- NOTE
 -- Telescope is currently hijacking the default filebrowser

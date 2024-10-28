@@ -93,11 +93,8 @@ require('nvim-treesitter.configs').setup {
         "c",
         "javascript",
         "typescript",
-        "rust",
         "lua",
         "java",
-        "norg",
-        "zig"
     },
     highlight = {
         enable = true

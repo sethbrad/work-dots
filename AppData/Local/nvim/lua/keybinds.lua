@@ -50,5 +50,4 @@ map('n', '<C-j>', '<C-w>j', options)
 map('n', '<C-k>', '<C-w>k', options)
 map('n', '<C-l>', '<C-w>l', options)
 
--- neorg
-map('n', '<leader>nw', '<cmd>NeorgStart<cr>', options)
+map('i', 'jj', '<Esc>', options);

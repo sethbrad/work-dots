@@ -37,10 +37,6 @@ Plug 'ThePrimeagen/vim-be-good'
 -- Plug 'RishabhRD/nvim-cheat.sh'
 Plug 'folke/which-key.nvim'
 
-Plug 'vimwiki/vimwiki'
--- Plug 'nvim-neorg/neorg'
-Plug 'hrsh7th/nvim-cmp'
-
 Plug 'hkupty/iron.nvim'
 
 Plug 'dag/vim-fish'
@@ -108,36 +104,6 @@ require('bufferline').setup {
     }
 }
 
--- neorg
--- require('neorg').setup {
---     load = {
---         ["core.defaults"] = {},
---         ["core.norg.dirman"] = {
---             config = {
---                 workspaces = {
---                     work = "~/notes/work",
---                 }
---             }
---         },
---         -- ["core.norg.concealer"] = {},
---         ["core.norg.completion"] = {
---             config = {
---                 engine = "nvim-cmp"
---             }
---         },
---         ["core.export"] = {}
---     }
--- }
-
--- nvim-cmp
-local cmp = require('cmp')
-
-cmp.setup {
-    sources = cmp.config.sources {
-        sources = 'neorg'
-    }
-}
-
 -- dashboard
 local db = require('dashboard')
 
@@ -178,6 +144,8 @@ db.custom_footer = {
     '                               ',
     "<== Seth's custom config :3 ==>"
 }
+
+-- db.setup(); this is broken currently
 
 -- iron
 local iron = require("iron.core")
